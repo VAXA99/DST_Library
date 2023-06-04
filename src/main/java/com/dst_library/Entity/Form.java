@@ -9,6 +9,7 @@ import java.sql.Date;
 @Entity
 @Getter
 @Setter
+@Table(name = "form")
 public class Form {
 
     @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)

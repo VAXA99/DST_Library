@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="book : ${books}">
+    <table class="wagons-table">
+        <thead>
+        <tr>
+            <th class="table-header">ID</th>
+            <th class="table-header">Автор</th>
+            <th class="table-header">Название</th>
+            <th class="table-header">Жанр</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}" class="wagon-row">
+            <td th:text="${book.getIdBook()}" class="table-data"></td>
+            <td th:text="${book.getAuthor()}" class="table-data"></td>
+            <td th:text="${book.getName()}" class="table-data"></td>
+            <td th:text="${book.getGenre()}" class="table-data"></td>
+            <td class="table-change">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

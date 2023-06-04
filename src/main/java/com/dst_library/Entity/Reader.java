@@ -9,6 +9,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Entity
+@Table(name = "reader")
 public class Reader {
 
     @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)
@@ -17,7 +18,7 @@ public class Reader {
     @Id
     private Long idReader;
 
-    @Column(columnDefinition = "TEXT", name = "author")
+    @Column(columnDefinition = "TEXT", name = "full_name")
     private String fullName;
 
     @Column(name = "passport_data")
