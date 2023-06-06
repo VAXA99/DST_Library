@@ -1,6 +1,8 @@
 package com.dst_library.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,13 +10,14 @@ import java.sql.Date;
 
 @Entity
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Table(name = "form")
 public class Form {
 
-    @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "SERIAL", name = "id_form")
+    @Column(columnDefinition = "BIGSERIAL", name = "id_form")
     @Id
     private Long idForm;
 
@@ -32,18 +35,7 @@ public class Form {
     @Column(name = "date_of_return")
     private Date dateOfReturn;
 
-    public Form() {
-    }
-
     public Form(Reader reader, Copy copy, Date dateOfIssue, Date dateOfReturn) {
-        this.reader = reader;
-        this.copy = copy;
-        this.dateOfIssue = dateOfIssue;
-        this.dateOfReturn = dateOfReturn;
-    }
-
-    public Form(Long idForm, Reader reader, Copy copy, Date dateOfIssue, Date dateOfReturn) {
-        this.idForm = idForm;
         this.reader = reader;
         this.copy = copy;
         this.dateOfIssue = dateOfIssue;

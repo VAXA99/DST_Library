@@ -1,19 +1,22 @@
 package com.dst_library.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "book")
 public class Book {
 
-    @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "SERIAL", name = "id_book")
+    @Column(columnDefinition = "BIGSERIAL", name = "id_book")
     @Id
     private Long idBook;
 
@@ -26,17 +29,7 @@ public class Book {
     @Column(columnDefinition = "TEXT", name = "genre")
     private String genre;
 
-    public Book() {
-    }
-
     public Book(String author, String name, String genre) {
-        this.author = author;
-        this.name = name;
-        this.genre = genre;
-    }
-
-    public Book(Long idBook, String author, String name, String genre) {
-        this.idBook = idBook;
         this.author = author;
         this.name = name;
         this.genre = genre;

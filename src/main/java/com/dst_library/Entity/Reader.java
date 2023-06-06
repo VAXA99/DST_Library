@@ -1,6 +1,8 @@
 package com.dst_library.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,13 +10,14 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "reader")
 public class Reader {
 
-    @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "SERIAL", name = "id_reader")
+    @Column(columnDefinition = "BIGSERIAL", name = "id_reader")
     @Id
     private Long idReader;
 
@@ -42,22 +45,7 @@ public class Reader {
     @Column(name = "card_number")
     private Integer cardNumber;
 
-    public Reader() {
-    }
-
     public Reader(String fullName, Integer passportData, Date checkInDate, Date checkOutDate, Character gender, Integer yearOfBirth, String profession, Integer cardNumber) {
-        this.fullName = fullName;
-        this.passportData = passportData;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-        this.gender = gender;
-        this.yearOfBirth = yearOfBirth;
-        this.profession = profession;
-        this.cardNumber = cardNumber;
-    }
-
-    public Reader(Long idReader, String fullName, Integer passportData, Date checkInDate, Date checkOutDate, Character gender, Integer yearOfBirth, String profession, Integer cardNumber) {
-        this.idReader = idReader;
         this.fullName = fullName;
         this.passportData = passportData;
         this.checkInDate = checkInDate;

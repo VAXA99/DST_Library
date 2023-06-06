@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="wagons-table">
+    <thead>
+    <tr>
+        <th class="table-header">ID</th>
+        <th class="table-header">Номинальное число книг</th>
+        <th class="table-header">Фактическое число книг</th>
+        <th class="table-header">Адрес</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="branch : ${branches}" class="wagon-row">
+        <td th:text="${branch.getIdBranch()}" class="table-data"></td>
+        <td th:text="${branch.getNominalBookNumber()}" class="table-data"></td>
+        <td th:text="${branch.getActualBookNumber()}" class="table-data"></td>
+        <td th:text="${branch.getAddress()}" class="table-data"></td>
+        <td class="table-change">
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -22,6 +22,7 @@ public class BookController {
     public String getBooksPage(Model model) {
         List<Book> books = bookService.getAll();
         model.addAttribute("books", books);
+
         return "books";
     }
 

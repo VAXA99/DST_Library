@@ -1,19 +1,22 @@
 package com.dst_library.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "copy")
 public class Copy {
 
-    @SequenceGenerator(name = "notes_SEQ", sequenceName = "notes_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "SERIAL", name = "id_copy")
+    @Column(columnDefinition = "BIGSERIAL", name = "id_copy")
     @Id
     private Long idCopy;
 
@@ -37,20 +40,7 @@ public class Copy {
     @JoinColumn(name = "id_branch", referencedColumnName = "id_branch", foreignKey = @ForeignKey(name = "id_branch"))
     private Branch branch;
 
-    public Copy() {
-    }
-
     public Copy(Integer shelfCoordinate, Integer yearOfRelease, Integer storageRoomNumber, String qualityState, Book book, Branch branch) {
-        this.shelfCoordinate = shelfCoordinate;
-        this.yearOfRelease = yearOfRelease;
-        this.storageRoomNumber = storageRoomNumber;
-        this.qualityState = qualityState;
-        this.book = book;
-        this.branch = branch;
-    }
-
-    public Copy(Long idCopy, Integer shelfCoordinate, Integer yearOfRelease, Integer storageRoomNumber, String qualityState, Book book, Branch branch) {
-        this.idCopy = idCopy;
         this.shelfCoordinate = shelfCoordinate;
         this.yearOfRelease = yearOfRelease;
         this.storageRoomNumber = storageRoomNumber;
