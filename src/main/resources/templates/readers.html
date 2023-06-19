@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Читатели</title>
+    <link rel="stylesheet" type="text/css" href="/css/readers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-icons@3.0.1/iconfont/material-icons.css">
 </head>
 <body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="/" class="nav-link">DABLibrary</a>
+        </div>
+        <nav class="nav">
+            <a href="/books" class="nav-link">Книги</a>
+            <a href="/branches" class="nav-link">Филиалы</a>
+            <a href="/genres" class="nav-link">Жанры</a>
+            <a href="/readers" class="nav-link">Читатели</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div th:each="reader: ${readers}" class="reader-card">
+        <div>
+            <p><span class="attribute-label">ФИО:</span> <span th:text="${reader.getFullName()}"></span></p>
+            <p><span class="attribute-label">Паспорт:</span> <span th:text="${reader.getPassportData()}"></span></p>
+            <p><span class="attribute-label">Дата записи:</span> <span th:text="${reader.getCheckInDate()}"></span></p>
+            <p><span class="attribute-label">Дата выписки:</span> <span th:text="${reader.getCheckOutDate()}"></span></p>
+            <p><span class="attribute-label">Пол:</span> <span th:text="${reader.getGender()}"></span></p>
+            <p><span class="attribute-label">Год рождения:</span> <span th:text="${reader.getYearOfBirth()}"></span></p>
+            <p><span class="attribute-label">Профессия:</span> <span th:text="${reader.getProfession()}"></span></p>
+            <p><span class="attribute-label">Номер читательского билета:</span> <span th:text="${reader.getCardNumber()}"></span></p>
+        </div>
+        <div class="reader-data">
+            <a href="" class="edit-btn"><i class="material-icons">edit</i></a>
+            <a href="" class="delete-btn"><i class="material-icons">delete</i></a>
+            <a href="" class="edit-btn"><i class="material-icons">book</i></a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

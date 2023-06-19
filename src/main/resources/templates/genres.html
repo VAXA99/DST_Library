@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Жанры</title>
+    <link rel="stylesheet" type="text/css" href="/css/tables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-icons@3.0.1/iconfont/material-icons.css">
 </head>
 <body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="/" class="nav-link">DABLibrary</a>
+        </div>
+        <nav class="nav">
+            <a href="/books" class="nav-link">Книги</a>
+            <a href="/branches" class="nav-link">Филиалы</a>
+            <a href="/genres" class="nav-link">Жанры</a>
+            <a href="/readers" class="nav-link">Читатели</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Переделать поиск -->
+    <form method="POST" th:action="@{books/search_book}">
+        <div class="search-container">
+            <input class="search-input" type="text" name="key_name" placeholder="Название">
+            <button class="search-button" type="submit">Поиск</button>
+        </div>
+    </form>
+    <button class="add-btn" onclick="openAddForm()">Добавить</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="table-header">Название</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="genre: ${genres}">
+            <td th:text="${genre.getName()}" class="table-data"></td>
+            <td class="table-change">
+                <a th:href="@{genres/edit/{genreId} (genreId=${genre.getIdGenre()})}" class="edit-btn">
+                    <i class="material-icons">edit</i>
+                </a>
+                <a th:href="@{genres/delete/{genreId} (genreId=${genre.getIdGenre()})}" class="delete-btn">
+                    <i class="material-icons">delete</i>
+                </a>
+                <a th:href="@{genres/delete/{genreId} (genreId=${genre.getIdGenre()})}" class="delete-btn">
+                    <i class="material-icons">book</i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="myAddModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddForm()">&times;</span>
+        <h2>Добавить жанр</h2>
+        <form th:action="@{genres/add}" method="POST">
+            <table>
+                <tr>
+                    <td>Название:</td>
+                    <td><input class="add-input" type="text" name="name"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Добавить</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function openAddForm() {
+        document.getElementById("myAddModal").style.display = "block";
+    }
+
+    function closeAddForm() {
+        document.getElementById("myAddModal").style.display = "none";
+    }
+</script>
 
 </body>
 </html>

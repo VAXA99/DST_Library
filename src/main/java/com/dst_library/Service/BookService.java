@@ -26,6 +26,11 @@ public class BookService {
     }
 
     @Async
+    public Book getByName(String name) {
+        return bookRepository.getByName(name);
+    }
+
+    @Async
     public void create(Book book) {
         bookRepository.save(book);
     }

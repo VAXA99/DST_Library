@@ -1,0 +1,274 @@
+/* Global styles
+==========================*/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Exo2', sans-serif;
+}
+
+
+/* Header
+==========================*/
+
+.header {
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 16px;
+    font-weight: 500;
+
+    font-family: 'Pacifico';
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    font-size: 14px;
+    margin-left: 20px;
+    text-decoration: none;
+
+    transition: all .3s linear;
+}
+
+.nav-link:hover {
+    color: #ede356;
+
+    text-decoration: underline 2px;
+}
+
+
+/* Container
+==========================*/
+
+.container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 15px;
+}
+
+
+/* Table
+==========================*/
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table-header {
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+}
+
+.table-data {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.table-data:hover {
+    background-color: #f2f2f2;
+
+}
+
+.table-change{
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Buttons
+==========================*/
+
+.add-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+
+    border: solid 1px black;
+
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: #3e8e41;
+}
+
+.edit-btn, .delete-btn {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.edit-btn:first-child {
+    margin-left: 0;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #777;
+}
+
+
+/* Modal
+==========================*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 500px;
+    border-radius: 5px;
+
+    text-align: center; /* Center align the content */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Form
+==========================*/
+form {
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.add-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"]:focus {
+    outline: none;
+}
+
+
+/* Search
+==========================*/
+
+.search-input {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-button {
+    margin-left: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+
+
+
+
+

@@ -2,30 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Филиалы</title>
+    <link rel="stylesheet" type="text/css" href="/css/tables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-icons@3.0.1/iconfont/material-icons.css">
 </head>
 <body>
 
-<table class="wagons-table">
-    <thead>
-    <tr>
-        <th class="table-header">ID</th>
-        <th class="table-header">Номинальное число книг</th>
-        <th class="table-header">Фактическое число книг</th>
-        <th class="table-header">Адрес</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="branch : ${branches}" class="wagon-row">
-        <td th:text="${branch.getIdBranch()}" class="table-data"></td>
-        <td th:text="${branch.getNominalBookNumber()}" class="table-data"></td>
-        <td th:text="${branch.getActualBookNumber()}" class="table-data"></td>
-        <td th:text="${branch.getAddress()}" class="table-data"></td>
-        <td class="table-change">
-        </td>
-    </tr>
-    </tbody>
-</table>
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="/" class="nav-link">DABLibrary</a>
+        </div>
+        <nav class="nav">
+            <a href="/books" class="nav-link">Книги</a>
+            <a href="/branches" class="nav-link">Филиалы</a>
+            <a href="/genres" class="nav-link">Жанры</a>
+            <a href="/readers" class="nav-link">Читатели</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="table-header">Адрес</th>
+            <th class="table-header">Номинальное число книг</th>
+            <th class="table-header">Фактическое число книг</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="branch: ${branches}">
+            <td th:text="${branch.getAddress()}" class="table-data"></td>
+            <td th:text="${branch.getNominalBookNumber()}" class="table-data"></td>
+            <td th:text="${branch.getActualBookNumber()}" class="table-data"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
